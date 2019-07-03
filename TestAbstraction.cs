@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using BenchmarkDotNet.Attributes;
 using System.Linq;
 using Collections.Benchmarks;
+using System.Collections;
 
 namespace Collections_Benchmarks
 {
@@ -19,6 +20,8 @@ namespace Collections_Benchmarks
         List<DataStruct> structList = new List<DataStruct> ();
         LinkedList<DataStruct> linkedList = new LinkedList<DataStruct> ();
         HashSet<DataStruct> set = null;
+        Queue<DataStruct> queue = null;
+
         DataStruct[] array = null;
 
         DataClass [] arrayObjects = null;
@@ -47,7 +50,7 @@ namespace Collections_Benchmarks
             this.concurrent = new ConcurrentQueue<DataStruct> (structList);
             this.arrayObjects = structList.Select(t =>  new DataClass(){ A = t.A, B=t.B, C=t.A, D=t.D })
                                           .ToArray();
-            
+            this.queue = new Queue<DataStruct>(this.structList);
         }
 
         [Benchmark]
@@ -72,6 +75,24 @@ namespace Collections_Benchmarks
         public int List_Bench ()
         {
             return ListCalculation (structList);
+        }
+
+        [Benchmark]
+        public int IList_Bench ()
+        {
+            return IListCalculation (structList);
+        }
+
+        [Benchmark]
+        public int Queue_Bench ()
+        {
+            return QueueCalculation (queue);
+        }
+
+        [Benchmark]
+        public int ICollection_Bench ()
+        {
+            return ICollectionCalculation (queue);
         }
 
         [Benchmark]
@@ -198,6 +219,38 @@ namespace Collections_Benchmarks
         }
 
         private int ListCalculation (List<DataStruct> items)
+        {
+            int result = 0;
+            foreach (var item in items)
+            {
+                result += Calculate(item);
+            }
+            return result;
+
+        }
+
+        private int IListCalculation (IList<DataStruct> items)
+        {
+            int result = 0;
+            foreach (var item in items)
+            {
+                result += Calculate(item);
+            }
+            return result;
+
+        }
+
+        private int ICollectionCalculation (ICollection items)
+        {
+            int result = 0;
+            foreach (var item in items)
+            {
+                result += Calculate((DataStruct)item);
+            }
+            return result;
+
+        }
+        private int QueueCalculation (Queue<DataStruct> items)
         {
             int result = 0;
             foreach (var item in items)
