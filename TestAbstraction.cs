@@ -250,6 +250,7 @@ namespace Collections_Benchmarks
             return result;
 
         }
+        
         private int QueueCalculation (Queue<DataStruct> items)
         {
             int result = 0;
