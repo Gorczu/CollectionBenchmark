@@ -35,20 +35,14 @@ namespace Collections_Benchmarks
             Random rn = new Random ();
             for (int i = 0; i < N; i++)
             {
-                structList.Add (new DataStruct ()
-                {
-                    A = rn.Next (),
-                        B = rn.Next (),
-                        C = rn.Next (),
-                        D = rn.Next ()
-                });
+                structList.Add (new DataStruct (){ A = rn.Next (), B = rn.Next (), C = rn.Next (), D = rn.Next () });
             }
             
             this.array = structList.ToArray ();
             this.set = new HashSet<DataStruct>(this.array);
             this.structImmutableList = ImmutableList.Create<DataStruct> (structList.ToArray ());
             this.concurrent = new ConcurrentQueue<DataStruct> (structList);
-            this.arrayObjects = structList.Select(t =>  new DataClass(){ A = t.A, B=t.B, C=t.A, D=t.D })
+            this.arrayObjects = structList.Select(t =>  new DataClass(){ A = t.A, B=t.B, C=t.C, D=t.D })
                                           .ToArray();
             this.queue = new Queue<DataStruct>(this.structList);
         }
@@ -92,7 +86,7 @@ namespace Collections_Benchmarks
         [Benchmark]
         public int ICollection_Bench ()
         {
-            return ICollectionCalculation (queue);
+            return ICollectionCalculation (structList);
         }
 
         [Benchmark]
@@ -250,7 +244,7 @@ namespace Collections_Benchmarks
             return result;
 
         }
-        
+
         private int QueueCalculation (Queue<DataStruct> items)
         {
             int result = 0;

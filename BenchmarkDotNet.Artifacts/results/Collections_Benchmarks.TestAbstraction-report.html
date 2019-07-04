@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Collections_Benchmarks.TestAbstraction-20190704-080039</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.11.5, OS=Windows 7 SP1 (6.1.7601.0)
+Intel Core i5-6300U CPU 2.40GHz (Skylake), 1 CPU, 4 logical and 2 physical cores
+Frequency=2437705 Hz, Resolution=410.2219 ns, Timer=TSC
+.NET Core SDK=3.0.100-preview-009812
+  [Host] : .NET Core 3.0.0-preview-27122-01 (CoreCLR 4.6.27121.03, CoreFX 4.7.18.57103), 64bit RyuJIT
+  Core   : .NET Core 3.0.0-preview-27122-01 (CoreCLR 4.6.27121.03, CoreFX 4.7.18.57103), 64bit RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>            Method</th><th>Job</th><th>Runtime</th><th>N</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Ratio</th><th>RatioSD</th><th>Rank</th>
+</tr>
+</thead><tbody><tr><td>Array_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Array_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>2.243 us</td><td>0.0632 us</td><td>0.1865 us</td><td>2.230 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>Array_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Array_NoInlining_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Array_NoInlining_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>2.606 us</td><td>0.0513 us</td><td>0.0611 us</td><td>2.594 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>Array_NoInlining_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>OneLinq_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>OneLinq_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>OneLinq_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>List_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>List_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>4.822 us</td><td>0.2133 us</td><td>0.6289 us</td><td>4.564 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>List_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>IList_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>IList_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>9.172 us</td><td>0.1805 us</td><td>0.4112 us</td><td>9.050 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>IList_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Queue_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Queue_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>6.841 us</td><td>0.3381 us</td><td>0.9970 us</td><td>7.184 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>Queue_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ICollection_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ICollection_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>16.329 us</td><td>0.5283 us</td><td>1.5072 us</td><td>15.944 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ICollection_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>HashSet_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>HashSet_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>12.644 us</td><td>0.2192 us</td><td>0.1943 us</td><td>12.679 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>HashSet_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ISet_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ISet_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>12.179 us</td><td>0.2377 us</td><td>0.3006 us</td><td>12.227 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ISet_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>IReadOnlyList_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>IReadOnlyList_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>9.683 us</td><td>0.2886 us</td><td>0.8235 us</td><td>9.416 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>IReadOnlyList_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Immutable_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Immutable_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>75.939 us</td><td>1.7229 us</td><td>2.4153 us</td><td>74.993 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>Immutable_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ImmutableInterface_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ImmutableInterface_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>87.071 us</td><td>1.7410 us</td><td>4.2708 us</td><td>85.939 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ImmutableInterface_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ConcurrentQueue_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ConcurrentQueue_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>13.482 us</td><td>0.4575 us</td><td>1.3199 us</td><td>13.191 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ConcurrentQueue_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ProdCons_Bench</td><td>Clr</td><td>Clr</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ProdCons_Bench</td><td>Core</td><td>Core</td><td>1000</td><td>12.255 us</td><td>0.2412 us</td><td>0.2962 us</td><td>12.176 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ProdCons_Bench</td><td>CoreRT</td><td>CoreRT</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Array_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Array_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>21.745 us</td><td>0.8839 us</td><td>2.5361 us</td><td>20.869 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>Array_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Array_NoInlining_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Array_NoInlining_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>27.375 us</td><td>0.6854 us</td><td>1.9992 us</td><td>26.839 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>Array_NoInlining_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>OneLinq_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>OneLinq_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>OneLinq_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>List_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>List_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>48.828 us</td><td>1.3085 us</td><td>3.7120 us</td><td>48.340 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>List_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>IList_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>IList_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>99.111 us</td><td>3.3646 us</td><td>9.7613 us</td><td>96.564 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>IList_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Queue_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Queue_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>60.461 us</td><td>1.2584 us</td><td>3.4660 us</td><td>59.717 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>Queue_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ICollection_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ICollection_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>162.593 us</td><td>3.7201 us</td><td>10.5532 us</td><td>161.496 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ICollection_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>HashSet_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>HashSet_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>124.799 us</td><td>2.4744 us</td><td>5.0545 us</td><td>125.239 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>HashSet_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ISet_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ISet_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>123.999 us</td><td>2.4662 us</td><td>6.7511 us</td><td>121.941 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ISet_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>IReadOnlyList_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>IReadOnlyList_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>89.339 us</td><td>1.7649 us</td><td>2.2320 us</td><td>89.952 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>IReadOnlyList_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Immutable_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>Immutable_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>755.086 us</td><td>14.2619 us</td><td>16.9777 us</td><td>752.604 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>Immutable_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ImmutableInterface_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ImmutableInterface_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>796.312 us</td><td>15.8455 us</td><td>16.9545 us</td><td>791.655 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ImmutableInterface_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ConcurrentQueue_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ConcurrentQueue_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>123.041 us</td><td>2.8235 us</td><td>5.6389 us</td><td>121.700 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ConcurrentQueue_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ProdCons_Bench</td><td>Clr</td><td>Clr</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr><tr><td>ProdCons_Bench</td><td>Core</td><td>Core</td><td>10000</td><td>120.933 us</td><td>2.4047 us</td><td>2.8627 us</td><td>120.776 us</td><td>?</td><td>?</td><td>1</td>
+</tr><tr><td>ProdCons_Bench</td><td>CoreRT</td><td>CoreRT</td><td>10000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>?</td>
+</tr></tbody></table>
+</body>
+</html>
