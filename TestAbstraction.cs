@@ -97,6 +97,12 @@ namespace Collections_Benchmarks
         }
 
         [Benchmark]
+        public int IEnumerable_Bench ()
+        {
+            return IEnumerableCalculation (structList);
+        }
+
+        [Benchmark]
         public int HashSet_Bench ()
         {
             return HashSetCalculation (this.set);
@@ -159,6 +165,16 @@ namespace Collections_Benchmarks
         }
 
         private int HashSetCalculation(HashSet<DataStruct> set)
+        {
+            int result = 0;
+            foreach (var item in concurrent)
+            {
+                result += Calculate(item);
+            }
+            return result;
+        }
+
+        private int IEnumerableCalculation(IEnumerable<DataStruct> structList)
         {
             int result = 0;
             foreach (var item in concurrent)
