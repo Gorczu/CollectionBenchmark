@@ -18,7 +18,7 @@ namespace Collections_Benchmarks
         [Params (1000, 10000)]
         public int N;
         List<DataStruct> structList = new List<DataStruct> ();
-        LinkedList<DataStruct> linkedList = new LinkedList<DataStruct> ();
+        LinkedList<DataStruct> linkedList = null;
         HashSet<DataStruct> set = null;
         Queue<DataStruct> queue = null;
 
@@ -44,6 +44,7 @@ namespace Collections_Benchmarks
             this.concurrent = new ConcurrentQueue<DataStruct> (structList);
             this.arrayObjects = structList.Select(t =>  new DataClass(){ A = t.A, B=t.B, C=t.C, D=t.D })
                                           .ToArray();
+            this.linkedList = new LinkedList<DataStruct>(structList);
             this.queue = new Queue<DataStruct>(this.structList);
         }
 
@@ -75,6 +76,12 @@ namespace Collections_Benchmarks
         public int IList_Bench ()
         {
             return IListCalculation (structList);
+        }
+
+        [Benchmark]
+        public int ListedList_Bench ()
+        {
+            return LinkedListCalculation (linkedList);
         }
 
         [Benchmark]
@@ -135,6 +142,16 @@ namespace Collections_Benchmarks
         {
             int result = 0;
             foreach (var item in concurrent)
+            {
+                result += Calculate(item);
+            }
+            return result;
+        }
+
+        private int LinkedListCalculation(LinkedList<DataStruct> structList)
+        {
+            int result = 0;
+            foreach (var item in structList)
             {
                 result += Calculate(item);
             }
